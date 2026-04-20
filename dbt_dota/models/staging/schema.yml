@@ -1,0 +1,62 @@
+version: 2
+
+models:
+  - name: stg_leagues
+    description: >
+      Staging model for league information from raw Dota 2 data. This model standardizes
+      column names and data types from the raw leagues source, providing unique league
+      records with tier classification, filtered to exclude null tiers.
+    columns:
+      - name: league_id
+        description: Unique identifier for the league
+        data_tests:
+          - unique
+          - not_null
+      - name: league_name
+        description: Name of the league
+        data_tests:
+          - not_null
+      - name: tier
+        description: Tier classification of the league (e.g., Premium, Professional, Amateur)
+        data_tests:
+          - not_null
+
+  - name: stg_main_metadata
+    description: >
+      Staging model for main match metadata from raw Dota 2 data. This model includes
+      match-level statistics, timing information, and game outcomes. Deduplicated by
+      match_id with latest record retained.
+    columns:
+      - name: version
+        description: Patch version in which the match was played
+      - name: match_id
+        description: Unique identifier for the match
+        data_tests:
+          - unique
+          - not_null
+      - name: league_id
+        description: Foreign key to the league table
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_leagues')
+                field: league_id
+      - name: start_datetime
+        description: Timestamp when the match started
+        data_tests:
+          - not_null
+      - name: start_date
+        description: Date when the match started (without time component)
+        data_tests:
+          - not_null
+      - name: duration
+        description: Match duration in seconds
+      - name: first_blood_time
+        description: Time in seconds when the first blood kill occurred
+      - name: radiant_win
+        description: Indicator of whether the Radiant team won the match
+      - name: radiant_score
+        description: Final kill count for the Radiant team
+      - name: dire_score
+        description: Final kill count for the Dire team
