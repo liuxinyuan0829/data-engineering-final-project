@@ -1,0 +1,12 @@
+dbt_dota:
+  target: dev
+  outputs:
+    dev:
+      type: bigquery
+      method: service-account
+      project: theta-carving-486822-c0
+      dataset: main_metadata
+      keyfile: "{{ env_var('GOOGLE_APPLICATION_CREDENTIALS', '../credentials/gcs_service_account.json') }}"
+      location: US
+      threads: 4
+      timeout_seconds: 300
