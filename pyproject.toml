@@ -1,0 +1,14 @@
+[project]
+name = "data-engineering-final-project"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "google-cloud-storage>=3.10.1",
+    "kagglehub>=1.0.0",
+    "pandas>=3.0.2",
+    "prefect>=3.6.27",
+    "pyarrow>=23.0.1",
+    "stream-unzip>=0.0.101",
+]
