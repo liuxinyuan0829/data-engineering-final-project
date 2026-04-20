@@ -22,3 +22,9 @@ cast(dire_score as integer) as dire_score
 
 
  from {{ source('raw', 'main_metadata') }}
+
+
+ qualify row_number() over(
+    partition by match_id
+    order by start_datetime
+) = 1
