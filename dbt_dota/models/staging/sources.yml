@@ -1,0 +1,8 @@
+sources:
+  - name: raw
+    description: "raw data sources for dota2 metadata"
+    database: theta-carving-486822-c0
+    schema: dbt_dota
+    tables:
+      - name: main_metadata
+      - name: leagues   
