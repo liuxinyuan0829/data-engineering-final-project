@@ -16,6 +16,9 @@ After years of playing, two observable trends motivated this project:
 
 The goal of this project is to build an end-to-end data pipeline that ingests professional match data, transforms it into analytics-ready models, and surfaces findings in an interactive dashboard.
 
+Please find the dashboard **[View Dashboard](https://datastudio.google.com/reporting/aff70da2-c27a-4443-aca7-ad8a72cb49eb)**, an explanation of the findings is presented in chapter 5 dashboard
+
+
 ---
 
 ## Data Source
