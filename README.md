@@ -253,6 +253,11 @@ dbt run
 dbt test
 ```
 
+**dbt model**
+
+![BigQuery](pictures/dbt.PNG)
+
+
 ### 5. Dashboard (Looker Studio)
 
 The final dashboard connects to the `fact_main_metadata` and `dim_leagues` BigQuery tables to surface:
